@@ -3,11 +3,11 @@ import { View } from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
 import * as SplashScreen from 'expo-splash-screen';
 import { useAppSlice, useAppService, IUser } from '@modules/app';
-import BottomSheet from '@components/BottomSheet';
-import DrawerNavigator from './drawer';
 import { loadImages, loadFonts } from '@theme';
 import { useDataPersist, DataPersistKeys } from '@hooks';
-import { isWeb } from '@utils/deviceInfo';
+import LoginScreen from '@views/Auth/Login/Login';
+import TabNavigator from './tab';
+import { AppStackNavigator } from './stack/components';
 
 // keep the splash screen visible while complete fetching resources
 SplashScreen.preventAutoHideAsync();
@@ -16,8 +16,6 @@ function Navigator() {
   const { getUser } = useAppService();
   const { dispatch, checked, loggedIn, setUser, setLoggedIn } = useAppSlice();
   const { setPersistData, getPersistData } = useDataPersist();
-
-  const [isOpen, setOpen] = useState(true);
 
   /**
    * preload assets and user data
@@ -31,8 +29,8 @@ function Navigator() {
       const user = await getUser();
 
       // store user data to redux
-      dispatch(setUser(user));
-      dispatch(setLoggedIn(!!user));
+      // dispatch(setUser(user));
+      // dispatch(setLoggedIn(!!user));
 
       // store user data to persistent storage (async storage)
       if (user) setPersistData<IUser>(DataPersistKeys.USER, user);
@@ -46,8 +44,8 @@ function Navigator() {
       getPersistData<IUser>(DataPersistKeys.USER)
         .then(user => {
           if (user) {
-            dispatch(setUser(user));
-            dispatch(setLoggedIn(!!user));
+            // dispatch(setUser(user));
+            // dispatch(setLoggedIn(!!user));
           }
         })
         .finally(() => {
@@ -64,14 +62,14 @@ function Navigator() {
   // TODO: switch router by loggedIn status
   console.log('[##] loggedIn', loggedIn);
 
-  return checked && loggedIn ? (
-    <>
-      <NavigationContainer>
-        <DrawerNavigator />
-      </NavigationContainer>
-    </>
-  ) : (
-    <View />
+  const handleLogin = () => {
+    dispatch(setLoggedIn(true)); // Update logged-in state
+  };
+
+  return (
+    <NavigationContainer>
+      {checked ? loggedIn ? <TabNavigator /> : <AppStackNavigator /> : <View />}
+    </NavigationContainer>
   );
 }
 

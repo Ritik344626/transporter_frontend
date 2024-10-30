@@ -1,21 +1,22 @@
 import React from 'react';
 import { View, Text, Image, ImageBackground, StyleSheet, Dimensions } from 'react-native';
+import { FontAwesome } from '@expo/vector-icons';
 
-export const UserContainer = () => {
+const HeaderContainer = () => {
   return (
     <ImageBackground
       source={require('@assets/images/home-background.png')}
       style={styles.container}
       imageStyle={styles.backgroundImage}>
       <View style={styles.leftSection}>
-        <Text style={styles.username}>Hi! Abhishek</Text>
-        <Text style={styles.location}>Delhi</Text>
+        <FontAwesome name="arrow-left" size={16} color={'white'} style={{ marginTop: 2 }} />
+        <Text style={styles.location}>View Details</Text>
       </View>
-      <View style={{ padding: 20 }}>
-        <Image
-          source={{ uri: 'https://cdn-icons-png.flaticon.com/512/3135/3135715.png' }}
-          style={styles.profileImage}
-        />
+      <View style={styles.leftSection}>
+        <FontAwesome name="money" size={16} color={'white'} style={{ marginTop: 2 }} />
+        <Text style={styles.location}>
+          <FontAwesome name="rupee" size={16} color={'white'} style={{ marginTop: 2 }} /> 1999
+        </Text>
       </View>
     </ImageBackground>
   );
@@ -37,14 +38,9 @@ const styles = StyleSheet.create({
     height: '100%',
   },
   leftSection: {
-    padding: 20,
-    flex: 1,
-    justifyContent: 'center',
-  },
-  username: {
-    fontSize: 18,
-    color: '#fff',
-    fontWeight: 'bold',
+    padding: 15,
+    display: 'flex',
+    flexDirection: 'row',
   },
   profileImage: {
     width: 50,
@@ -54,5 +50,10 @@ const styles = StyleSheet.create({
   location: {
     fontSize: 14,
     color: '#fff',
+    fontWeight: 'bold',
+    marginLeft: 10,
+    padding: 0,
   },
 });
+
+export default HeaderContainer;

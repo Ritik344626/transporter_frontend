@@ -3,17 +3,38 @@
   "compilerOptions": {
     "strict": true,
     "baseUrl": "./",
+    "skipLibCheck": true, // Add this line
     "paths": {
-      "@assets/*": ["./assets/*"],
-      "@components/*": ["./src/components/*"],
-      "@views/*": ["./src/views/*"],
-      "@layouts/*": ["./src/layouts/*"],
-      "@hooks": ["./src/hooks/index.ts"],
-      "@navigator": ["./src/navigator/index.ts"],
-      "@navigator/*": ["./src/navigator/*"],
-      "@utils/*": ["./src/utils/*"],
-      "@theme": ["./src/theme/index.ts"],
-      "@modules/*": ["./src/modules/*"],
+      "@assets/*": [
+        "./assets/*"
+      ],
+      "@components/*": [
+        "./src/components/*"
+      ],
+      "@views/*": [
+        "./src/views/*"
+      ],
+      "@layouts/*": [
+        "./src/layouts/*"
+      ],
+      "@hooks": [
+        "./src/hooks/index.ts"
+      ],
+      "@navigator": [
+        "./src/navigator/index.ts"
+      ],
+      "@navigator/*": [
+        "./src/navigator/*"
+      ],
+      "@utils/*": [
+        "./src/utils/*"
+      ],
+      "@theme": [
+        "./src/theme/index.ts"
+      ],
+      "@modules/*": [
+        "./src/modules/*"
+      ],
     }
   }
 }

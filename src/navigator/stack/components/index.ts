@@ -1,2 +1,1 @@
-export * from './StackHeaderLeft';
-export * from './StackHeaderTitle';
+export * from './Stack';

@@ -4,7 +4,7 @@ import { State, Dispatch } from '@utils/store';
 import { IUser, IAppState } from './app.typeDefs';
 
 const initialState: IAppState = {
-  checked: false,
+  checked: true,
   loggedIn: false,
   user: undefined,
 };

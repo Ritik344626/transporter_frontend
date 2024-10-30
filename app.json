@@ -2,7 +2,7 @@
   "expo": {
     "name": "The-transporter",
     "slug": "The-transporter",
-    "owner": "",
+    "owner": "rick45",
     "privacy": "unlisted",
     "version": "1.0.0",
     "platforms": [
@@ -28,6 +28,11 @@
       "adaptiveIcon": {
         "foregroundImage": "./assets/images/logo-sm.png",
         "backgroundColor": "#ffffff"
+      },
+      "config": {
+        "googleMaps": {
+          "apiKey": "AIzaSyBh7eZkFtwIzbwIyuyU0s--5p36FW-9quU"
+        }
       }
     },
     "web": {
@@ -35,7 +40,8 @@
     },
     "extra": {
       "eas": {
-        "projectId": "18adc0d0-eb1d-11e9-8009-d524ed5cc4a7"
+        "projectId": "d88dbf5b-f8a2-49ce-a936-cd981be78119",
+        "javaVersion": "17"
       }
     },
     "updates": {

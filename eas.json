@@ -1,56 +1,26 @@
 {
+  "cli": {
+    "version": ">= 12.6.0",
+    "appVersionSource": "remote"
+  },
   "build": {
-    "base": {
-      "node": "20.9.0",
-      "env": {
-        "APP_ENV": "production"
-      },
-      "ios": {
-        "image": "latest",
-        "resourceClass": "m1-medium",
-        "env": {
-          "PLATFORM": "ios"
-        }
-      },
-      "android": {
-        "image": "default",
-        "env": {
-          "PLATFORM": "android"
-        }
-      },
-      "channel": "base"
-    },
     "development": {
-      "extends": "base",
-      "channel": "development",
+      "developmentClient": true,
       "distribution": "internal",
-      "env": {
-        "APP_ENV": "dev"
-      },
       "android": {
-        "gradleCommand": ":app:assembleDebug"
-      },
-      "ios": {
-        "simulator": true,
-        "buildConfiguration": "Debug"
+        "buildType": "apk"
       }
     },
-    "staging": {
-      "extends": "base",
-      "channel": "staging",
+    "preview": {
       "distribution": "internal",
-      "env": {
-        "APP_ENV": "stg"
-      },
-      "ios": {
-        "enterpriseProvisioning": "universal"
+      "android": {
+        "buildType": "apk"
       }
     },
     "production": {
-      "extends": "base",
-      "channel": "production",
-      "env": {
-        "APP_ENV": "prod"
+      "autoIncrement": true,
+      "android": {
+        "buildType": "apk"
       }
     }
   },

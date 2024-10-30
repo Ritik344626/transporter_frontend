@@ -12,14 +12,8 @@ const Stack = createNativeStackNavigator<StackParamList>();
 export function HomeStackNavigator() {
   return (
     <Stack.Navigator screenOptions={{ headerShown: false }}>
-      <Stack.Screen
-        component={Home}
-        name="HomeStack"
-      />
-      <Stack.Screen
-        component={Details}
-        name="DetailsStack"
-      />
+      <Stack.Screen component={Home} name="HomeStack" />
+      <Stack.Screen component={Details} name="DetailsStack" />
     </Stack.Navigator>
   );
 }
@@ -27,14 +21,17 @@ export function HomeStackNavigator() {
 export function ProfileStackNavigator() {
   return (
     <Stack.Navigator screenOptions={{ headerShown: false }}>
-      <Stack.Screen
-        component={Profile}
-        name="ProfileStack"
-      />
-      <Stack.Screen
-        component={Details}
-        name="DetailsStack"
-      />
+      <Stack.Screen component={Profile} name="ProfileStack" />
+      <Stack.Screen component={Details} name="DetailsStack" />
+    </Stack.Navigator>
+  );
+}
+
+export function DetailStackNavigator() {
+  return (
+    <Stack.Navigator screenOptions={{ headerShown: false }}>
+      <Stack.Screen component={Details} name="ProfileStack" />
+      <Stack.Screen component={Home} name="HomeStack" />
     </Stack.Navigator>
   );
 }
